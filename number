@@ -1,0 +1,58 @@
+#Number Guessing Game Objectives:
+
+
+from art import logo 
+print(logo)
+
+print("Welcome to the number guessing game.")
+print("I'm thinking a number between 1 to 100.")
+hardness = input("Choose a difficulty, easy or hard: ").lower()
+if hardness == "easy":
+  play_time = 10
+elif hardness == "hard":
+  play_time = 5
+else:
+  print("Invaild input, please type 'easy' or 'hard'")
+  play_time=0
+
+import random
+NUMBER = random.choice(range(1,101))
+
+
+def game(play_time):
+
+  for _ in range(play_time):
+    
+    print(f"You have {play_time} attempts to make a guess.")
+    if play_time > 0:
+      guess = int(input("Make a guess: "))
+      if guess > NUMBER:
+        print("Too high.")
+      elif guess < NUMBER:
+        print("Too low.")
+      elif guess == NUMBER:
+        print(f"You have it. The correct answer is {guess}") 
+      
+      play_time -= 1
+        
+    if play_time == 0:
+      print(f"You are out of move, the correct answer is {NUMBER} ")
+
+
+game(play_time)
+  
+
+
+  
+  
+
+
+
+# Include an ASCII art logo.
+# Allow the player to submit a guess for a number between 1 and 100.
+# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+# If they got the answer correct, show the actual answer to the player.
+# Track the number of turns remaining.
+# If they run out of turns, provide feedback to the player. 
+# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
+
